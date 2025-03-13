@@ -121,6 +121,15 @@
         align-items: flex-start;
       }
 
+      .skills-container {
+        margin-top: 65%;
+      }
+
+      @media (max-height: 768px) {
+        .skills-container {
+          margin-top: 75%;
+        }
+      }
       /* Portfolio Grid */
       .portfolio-container {
         position: absolute;
@@ -302,6 +311,53 @@
         0%, 100% { opacity: 0; }
         50% { opacity: 1; }
       }
+
+      @media (min-width: 768px) {
+        .about-container {
+          width: 35%;
+        }
+        .portfolio-container {
+          width: 65%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-container, .portfolio-container {
+          width: 100%; 
+          margin-top: 5%;
+        }
+      }
+
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .project-card {
+          flex-direction: row;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .project-card {
+          padding: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          font-size: 0.9rem;
+        }
+        .project-card h5 {
+          font-size: 1.2rem;
+        }
+        .btn {
+          font-size: 0.8rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -345,7 +401,7 @@
       </div>
 
       <!-- Skills card -->
-      <div class="about-container" style="margin-top: 75%;">
+      <div class="about-container skills-container">
         <div class="project-card">
           <h2 style="text-align: center; width: 100%;">My Skills</h2>
           <div class="row" style="margin-top: 1rem;">
