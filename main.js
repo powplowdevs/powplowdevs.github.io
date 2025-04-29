@@ -4,7 +4,7 @@ let offsetX = 0, offsetY = 0;
 let container = document.body;
 
 document.addEventListener("mousedown", (event) => {
-    if(!window.spoutActive) return;
+    if (!window.spoutActive) return;
     isDragging = true;
     startX = event.clientX - offsetX;
     startY = event.clientY - offsetY;
@@ -13,19 +13,16 @@ document.addEventListener("mousedown", (event) => {
 
 document.addEventListener("mousemove", (event) => {
     if (!isDragging) return;
-    
     offsetX = event.clientX - startX;
     offsetY = event.clientY - startY;
-
     // container.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
 });
 
 document.addEventListener("mouseup", () => {
     isDragging = false;
     container.style.transition = "transform 0.25s ease-out";
-    container.style.transform = "translate(0px, 0px)";
-    offsetX = 0;
-    offsetY = 0;
+    container.style.transform = "translate(0, 0)";
+    offsetX = offsetY = 0;
 });
 
 document.querySelectorAll("a").forEach(link => {
@@ -33,115 +30,146 @@ document.querySelectorAll("a").forEach(link => {
     link.setAttribute("rel", "noopener noreferrer");
 });
 
-// —— Employer popup ——
-window.addEventListener("load", () => {
-    const empPopup = document.createElement("div");
-    empPopup.style.position = "fixed";
-    empPopup.style.width = "80%";
-    empPopup.style.maxWidth = "500px";
-    empPopup.style.top = "50%";
-    empPopup.style.left = "50%";
-    empPopup.style.transform = "translate(-50%, -50%)";
-    empPopup.style.background = "linear-gradient(145deg, #222, #111)";
-    empPopup.style.padding = "25px";
-    empPopup.style.borderRadius = "15px";
-    empPopup.style.zIndex = "10000";
-    empPopup.style.color = "#fff";
-    empPopup.style.fontFamily = "'Arial', sans-serif";
-    empPopup.style.textAlign = "center";
-    empPopup.style.boxShadow = "0 8px 20px rgba(0,0,0,0.6)";
-    empPopup.style.opacity = "0";
-    empPopup.style.visibility = "hidden";
-    empPopup.style.transition = "opacity 0.4s ease, visibility 0.4s ease";
-
-    empPopup.innerHTML = `
-        <h2 style="font-size: 22px; margin-bottom: 12px;">Hello there!</h2>
-        <p style="font-size: 16px; margin-bottom: 18px;">
-            Employer? Check out my <strong>sleek portfolio</strong> for a more streamlined view.
-        </p>
-        <a href="https://powplowdevs.github.io/sleekPortfolio/" 
-           style="display:inline-block; margin-bottom:12px; padding:10px 16px; background:#1e90ff; color:#fff; border-radius:8px; text-decoration:none; font-size:15px;">
-            View Portfolio
-        </a>
-        <br/>
-        <button id="empClose" 
-                style="padding:8px 14px; background:#444; border:none; border-radius:8px; color:#ccc; cursor:pointer; font-size:14px;">
-            Close
-        </button>
-    `;
-
-    document.body.appendChild(empPopup);
-    // show it
-    setTimeout(() => {
-        empPopup.style.opacity = "1";
-        empPopup.style.visibility = "visible";
-    }, 100);
-
-    document.getElementById("empClose").addEventListener("click", () => {
-        empPopup.style.opacity = "0";
-        empPopup.style.visibility = "hidden";
-        setTimeout(() => empPopup.remove(), 400);
-    });
-});
-
-// —— Mobile popup ——
+// —— Mobile popup (always top) ——
 if (window.innerWidth <= 768) {
     const popup = document.createElement("div");
-    popup.style.position = "fixed";
-    popup.style.width = "80%";
-    popup.style.maxWidth = "600px";
-    popup.style.top = "50%";
-    popup.style.left = "50%";
-    popup.style.transform = "translate(-50%, -50%)";
-    popup.style.background = "linear-gradient(145deg, #333, #000)";
-    popup.style.padding = "30px";
-    popup.style.borderRadius = "20px";
-    popup.style.zIndex = "9999";
-    popup.style.textAlign = "center";
-    popup.style.color = "#fff";
-    popup.style.fontFamily = "'Arial', sans-serif";
-    popup.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.7)";
-    popup.style.transition = "all 0.5s ease-in-out";
-    popup.style.opacity = "0";
-    popup.style.visibility = "hidden";
+    Object.assign(popup.style, {
+        position: "fixed",
+        width: "90%",
+        maxWidth: "480px",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        background: "#111",
+        padding: "24px",
+        borderRadius: "16px",
+        zIndex: "10002",
+        color: "#f0f0f0",
+        fontFamily: "system-ui, sans-serif",
+        textAlign: "center",
+        boxShadow: "0 12px 48px rgba(0,0,0,0.8)",
+        backdropFilter: "blur(8px)",
+        opacity: "0",
+        visibility: "hidden",
+        transition: "opacity 0.4s ease, visibility 0.4s ease"
+    });
 
     popup.innerHTML = `
-        <h2 style="font-size: 24px; margin-bottom: 10px;">Sorry... This site isn't mobile-friendly yet.</h2>
-        <p style="font-size: 16px; margin-bottom: 20px;">
-            But hey, I've always preferred the backend anyway...
+        <h2 style="font-size:1.5rem; margin-bottom:0.75rem;">Heads up!</h2>
+        <p style="margin-bottom:1rem;">
+            This site isn’t optimized for mobile yet, but you can check out my <strong>sleek portfolio</strong> that is:
         </p>
-        <p style="font-size: 14px; margin-bottom: 20px;">
-            Hey, you can also check out my sleek website that <strong>IS</strong> mobile friendly:
-            <a href="https://powplowdevs.github.io/sleekPortfolio/" 
-               style="color:#1e90ff; text-decoration:underline;" target="_blank">
-               sleekPortfolio
-            </a>
-        </p>
-        <button style="padding: 12px 20px; background: #ff4b5c; border: none; border-radius: 10px; color: white; font-size: 16px; cursor: pointer; transition: background 0.3s ease;">
-            Got it.
-        </button>
+        <a href="https://powplowdevs.github.io/sleekPortfolio/" 
+           style="display:inline-block; margin-bottom:1rem; padding:0.75rem 1.5rem; 
+                  background:linear-gradient(135deg,#1e90ff,#3cbaff); color:#fff; 
+                  border:none; border-radius:8px; text-decoration:none; font-weight:500; 
+                  box-shadow:0 4px 12px rgba(0,0,0,0.3); transition:transform 0.2s ease;"
+           onmouseover="this.style.transform='scale(1.05)';"
+           onmouseout="this.style.transform='scale(1)';">
+            View Mobile Site
+        </a>
+        <div>
+            <button id="mobileClose" 
+                    style="padding:0.5rem 1rem; background:#444; border:none; 
+                           border-radius:6px; color:#ccc; font-size:0.9rem; cursor:pointer; 
+                           transition:background 0.2s ease;">
+                Got it
+            </button>
+        </div>
     `;
 
-    const button = popup.querySelector("button");
-    button.addEventListener("mouseover", () => {
-        button.style.backgroundColor = "#ff3d4b";
-    });
-    button.addEventListener("mouseout", () => {
-        button.style.backgroundColor = "#ff4b5c";
-    });
-
     document.body.appendChild(popup);
-
     setTimeout(() => {
         popup.style.opacity = "1";
         popup.style.visibility = "visible";
     }, 100);
 
-    button.addEventListener("click", () => {
+    popup.querySelector("#mobileClose").addEventListener("click", () => {
         popup.style.opacity = "0";
         popup.style.visibility = "hidden";
+        setTimeout(() => popup.remove(), 400);
+    });
+}
+
+// —— Employer popup (desktop only) ——
+if (window.innerWidth > 768) {
+    window.addEventListener("load", () => {
+        // backdrop
+        const backdrop = document.createElement("div");
+        Object.assign(backdrop.style, {
+            position: "fixed",
+            top: 0, left: 0, right: 0, bottom: 0,
+            background: "rgba(0,0,0,0.6)",
+            zIndex: "10000",
+            opacity: "0",
+            visibility: "hidden",
+            transition: "opacity 0.4s ease"
+        });
+        document.body.appendChild(backdrop);
+
+        // popup card
+        const empPopup = document.createElement("div");
+        Object.assign(empPopup.style, {
+            position: "fixed",
+            top: "50%", left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "400px",
+            background: "#fff",
+            padding: "32px",
+            borderRadius: "12px",
+            zIndex: "10001",
+            color: "#333",
+            fontFamily: "system-ui, sans-serif",
+            textAlign: "center",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+            opacity: "0",
+            visibility: "hidden",
+            transition: "opacity 0.4s ease, visibility 0.4s ease"
+        });
+
+        empPopup.innerHTML = `
+            <h2 style="margin-bottom:0.5rem; font-size:1.75rem; color:#222;">
+                Hey there!
+            </h2>
+            <p style="margin-bottom:1.5rem; font-size:1rem; line-height:1.4;">
+                Are you an employer? Take a peek at my <strong>sleek portfolio</strong>, a more conventional showcase of my work.
+            </p>
+            <a href="https://powplowdevs.github.io/sleekPortfolio/" 
+               style="display:inline-block; margin-bottom:1.5rem; padding:0.75rem 1.5rem; 
+                      background:#007bff; color:#fff; text-decoration:none; border-radius:6px; 
+                      font-weight:500; box-shadow:0 4px 10px rgba(0,0,0,0.15); transition:background 0.2s ease;"
+               onmouseover="this.style.background='#0056b3';"
+               onmouseout="this.style.background='#007bff';">
+                View Portfolio
+            </a>
+            <div>
+                <button id="empClose" 
+                        style="padding:0.5rem 1rem; background:#e0e0e0; border:none; 
+                               border-radius:6px; font-size:0.9rem; cursor:pointer; 
+                               transition:background 0.2s ease;">
+                    Close
+                </button>
+            </div>
+        `;
+
+        document.body.appendChild(empPopup);
+
+        // show both
         setTimeout(() => {
-            popup.remove();
-        }, 500);
+            backdrop.style.opacity = "1";
+            backdrop.style.visibility = "visible";
+            empPopup.style.opacity = "1";
+            empPopup.style.visibility = "visible";
+        }, 100);
+
+        // close handler
+        document.querySelector("#empClose").addEventListener("click", () => {
+            backdrop.style.opacity = empPopup.style.opacity = "0";
+            backdrop.style.visibility = empPopup.style.visibility = "hidden";
+            setTimeout(() => {
+                backdrop.remove();
+                empPopup.remove();
+            }, 400);
+        });
     });
 }
