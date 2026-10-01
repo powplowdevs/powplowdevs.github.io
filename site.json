@@ -1,0 +1,422 @@
+{
+  "profile": {
+    "firstName": "Ayoub",
+    "lastName": "Mohamed",
+    "handle": "powplowdevs",
+    "tagline": "Self-taught programmer interested in software solutions, cybersecurity, and networking.",
+    "subline": "Second-year IT student at George Mason.",
+    "status": "Open to 2027 internships"
+  },
+  "links": [
+    {
+      "icon": "doc",
+      "label": "Resume",
+      "detail": "PDF",
+      "url": "https://raw.githubusercontent.com/powplowdevs/sleekPortfolio/main/MohamedAResume.pdf"
+    },
+    {
+      "icon": "github",
+      "label": "GitHub",
+      "detail": "@powplowdevs",
+      "url": "https://github.com/powplowdevs"
+    },
+    {
+      "icon": "linkedin",
+      "label": "LinkedIn",
+      "detail": "ayoub-mohamed",
+      "url": "https://www.linkedin.com/in/ayoub-mohamed-3179112a2"
+    },
+    {
+      "icon": "medium",
+      "label": "Medium",
+      "detail": "@ayoubsmohamed07",
+      "url": "https://medium.com/@ayoubsmohamed07"
+    },
+    {
+      "icon": "mail",
+      "label": "Email",
+      "detail": "ayoubsmohamed07@gmail.com",
+      "url": "mailto:ayoubsmohamed07@gmail.com",
+      "copy": "ayoubsmohamed07@gmail.com"
+    }
+  ],
+  "currentlyBuilding": {
+    "title": "ASIO Client-Server Framework v2",
+    "kind": "Async C++ networking framework",
+    "description": "A from-scratch rewrite of my header-only Boost.Asio framework. Connects, reads, writes, and logging all return instantly and finish in the background, so the app on top never freezes. This time I'm rebuilding it piece by piece and load testing it at the end.",
+    "stack": [
+      "cpp",
+      "asio"
+    ],
+    "repo": "powplowdevs/ASIO-Client-Server-Framework",
+    "image": null
+  },
+  "projects": [
+    {
+      "name": "ASIO Framework v2",
+      "building": true,
+      "coverText": "ASIO V2",
+      "kind": "Async C++ networking framework",
+      "description": "A from-scratch rewrite of my header-only Boost.Asio framework, rebuilt piece by piece. The original v1 lives in the same repo, with its docs linked here.",
+      "stack": [
+        "cpp",
+        "asio"
+      ],
+      "repo": "powplowdevs/ASIO-Client-Server-Framework",
+      "links": [
+        {
+          "label": "v1 docs",
+          "url": "https://powplowdevs.github.io/docs/ASIO_CF/index.html"
+        }
+      ],
+      "stars": 1
+    },
+    {
+      "name": "WINSPAR",
+      "kind": "Windows TCP optimizer",
+      "description": "Command-line tool that speed-tests different TCP settings and keeps the fastest, then uses Windows QoS policies to prioritize or cap bandwidth per app. Built on the registry and WinAPI as my 2023-24 capstone.",
+      "stack": [
+        "cpp",
+        "windows"
+      ],
+      "repo": "powplowdevs/WINSPAR-Windows-TCP-Optimizer",
+      "stars": 11
+    },
+    {
+      "name": "Zero Trust mTLS Server",
+      "coverText": "ZERO TRUST",
+      "kind": "Certificate-based auth server",
+      "description": "Users log in with a CA-signed client certificate plus a password, and the certificate is re-checked on every request, so revoking a device locks it out instantly. Includes device enrollment, granular permissions, and JSON audit logs.",
+      "stack": [
+        "go"
+      ],
+      "repo": "powplowdevs/zero-trust-mtls-server"
+    },
+    {
+      "name": "SpyView",
+      "kind": "Tracker and fingerprint monitor",
+      "description": "Browser extension that matches outgoing requests against DuckDuckGo's Tracker Radar, scores your privacy live, and maps where trackers are based. Everything runs locally.",
+      "stack": [
+        "js",
+        "firefox",
+        "chrome"
+      ],
+      "repo": "powplowdevs/SpyView",
+      "links": [
+        {
+          "label": "Firefox Add-ons",
+          "url": "https://addons.mozilla.org/en-US/firefox/addon/spyview/"
+        }
+      ],
+      "stars": 4
+    },
+    {
+      "name": "Sandbox My Desktop",
+      "kind": "Live shared sand simulation",
+      "description": "Draw sand in your browser and it shows up on my actual desktop. A Flask and Socket.IO server runs the simulation loop and streams the grid to everyone over WebSockets.",
+      "stack": [
+        "python",
+        "flask",
+        "socketio",
+        "js"
+      ],
+      "repo": "powplowdevs/Sandbox-my-Wallpaper",
+      "live": "http://sandboxmydesktop.tech/",
+      "links": [
+        {
+          "label": "Live site",
+          "url": "http://sandboxmydesktop.tech/"
+        }
+      ]
+    },
+    {
+      "name": "AutoSFX Wizard",
+      "kind": "Self-extracting installer builder",
+      "description": "Packs files and folders into one self-extracting .exe, with optional zlib compression plus run order, run count, and hidden or shown launch per file. Python packer, C++ stub.",
+      "stack": [
+        "cpp",
+        "python",
+        "windows"
+      ],
+      "repo": "powplowdevs/autoSFX",
+      "stars": 1
+    },
+    {
+      "name": "LearnWebGL",
+      "kind": "Graphics experiments",
+      "description": "Small projects I built while learning WebGL.",
+      "stack": [
+        "js",
+        "opengl",
+        "html"
+      ],
+      "repo": "powplowdevs/LearnWebGL",
+      "stars": 1
+    }
+  ],
+  "stack": {
+    "groups": [
+      {
+        "name": "Languages",
+        "skills": [
+          "cpp",
+          "c",
+          "python",
+          "go",
+          "js",
+          "java",
+          "csharp"
+        ]
+      },
+      {
+        "name": "Tools and platforms",
+        "skills": [
+          "node",
+          "flask",
+          "socketio",
+          "unity",
+          "mysql",
+          "linux",
+          "git",
+          "github",
+          "vscode",
+          "pi",
+          "html",
+          "css"
+        ]
+      }
+    ],
+    "strongGlow": [
+      "java",
+      "flask",
+      "socketio",
+      "unity",
+      "mysql",
+      "pi",
+      "html",
+      "css"
+    ]
+  },
+  "skills": {
+    "cpp": {
+      "label": "C++"
+    },
+    "c": {
+      "label": "C",
+      "note": "Tinkering",
+      "noteDetail": "Smaller experiments and scripts, nothing public yet."
+    },
+    "python": {
+      "label": "Python"
+    },
+    "go": {
+      "label": "Go"
+    },
+    "js": {
+      "label": "JavaScript"
+    },
+    "java": {
+      "label": "Java"
+    },
+    "csharp": {
+      "label": "C#",
+      "note": "Early game dev",
+      "noteDetail": "Childhood game dev: Unity games I made in 8th grade, like the FPS One Life One Goal.",
+      "noteLink": "https://powplowdevs.itch.io/",
+      "noteLinkText": "Play them on itch.io"
+    },
+    "node": {
+      "label": "Node.js",
+      "note": "Tinkering",
+      "noteDetail": "Smaller experiments and scripts, nothing public yet."
+    },
+    "flask": {
+      "label": "Flask"
+    },
+    "socketio": {
+      "label": "Socket.IO"
+    },
+    "unity": {
+      "label": "Unity",
+      "note": "Early game dev",
+      "noteDetail": "Childhood game dev: Unity games I made in 8th grade, like the FPS One Life One Goal.",
+      "noteLink": "https://powplowdevs.itch.io/",
+      "noteLinkText": "Play them on itch.io"
+    },
+    "mysql": {
+      "label": "MySQL"
+    },
+    "linux": {
+      "label": "Linux",
+      "note": "Daily driver",
+      "noteDetail": "My everyday OS."
+    },
+    "git": {
+      "label": "Git",
+      "note": "Every project",
+      "noteDetail": "Version control for every repo here."
+    },
+    "github": {
+      "label": "GitHub",
+      "note": "Every project",
+      "noteDetail": "Where every project here lives."
+    },
+    "vscode": {
+      "label": "VS Code",
+      "note": "Daily driver",
+      "noteDetail": "My main editor."
+    },
+    "pi": {
+      "label": "Raspberry Pi",
+      "note": "Homelab",
+      "noteDetail": "Runs my homelab."
+    },
+    "html": {
+      "label": "HTML"
+    },
+    "css": {
+      "label": "CSS"
+    },
+    "asio": {
+      "label": "Boost.Asio"
+    },
+    "windows": {
+      "label": "Windows"
+    },
+    "chrome": {
+      "label": "Chrome"
+    },
+    "firefox": {
+      "label": "Firefox"
+    },
+    "opengl": {
+      "label": "WebGL"
+    }
+  },
+  "courses": [
+    {
+      "code": "IT 214",
+      "name": "Database Fundamentals",
+      "school": "George Mason",
+      "skills": [
+        "mysql"
+      ]
+    },
+    {
+      "code": "IT 213",
+      "name": "Multimedia and Web Design",
+      "school": "George Mason",
+      "skills": [
+        "html",
+        "css"
+      ],
+      "inProgress": true
+    },
+    {
+      "code": "AP CSA",
+      "name": "AP Computer Science A",
+      "school": "Woodson High School",
+      "skills": [
+        "java"
+      ]
+    },
+    {
+      "code": "CS Data Structures",
+      "name": "Data Structures (Java)",
+      "school": "Woodson High School",
+      "skills": [
+        "java"
+      ]
+    }
+  ],
+  "history": [
+    {
+      "type": "edu",
+      "title": "B.S. Information Technology",
+      "place": "George Mason University, Software Solutions concentration",
+      "dates": "2025 to present"
+    },
+    {
+      "type": "work",
+      "title": "General Support Assistant (volunteer)",
+      "place": "James Lee Community Center",
+      "dates": "Apr to May 2025"
+    },
+    {
+      "type": "work",
+      "title": "General Support Assistant (volunteer)",
+      "place": "FCP: Cub Run Rec Center",
+      "dates": "Apr to May 2024"
+    },
+    {
+      "type": "edu",
+      "title": "Advanced diploma, 4.0 GPA, honors graduate",
+      "place": "Carter G. Woodson High School",
+      "dates": "2021 to 2025"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Manage Security Risks",
+      "issuer": "Google Cybersecurity Certificate",
+      "year": "2023",
+      "icon": "google",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/E53NTFXTHZUW"
+    },
+    {
+      "name": "Foundations of Cybersecurity",
+      "issuer": "Google Cybersecurity Certificate",
+      "year": "2023",
+      "icon": "google",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/M4VEWTZL58XR"
+    },
+    {
+      "name": "Certificate of CS Achievement",
+      "issuer": "CS Honor Society, Woodson High School",
+      "year": "May 2023",
+      "icon": "badge",
+      "url": "https://csteachers.org/cshs/"
+    },
+    {
+      "name": "Learning Data Analytics",
+      "issuer": "LinkedIn Learning",
+      "year": "2022",
+      "icon": "linkedin"
+    }
+  ],
+  "writing": [
+    {
+      "title": "Python linear regression",
+      "summary": "A walkthrough of a from-scratch regression script: best-fit line, squared error, and an accuracy score.",
+      "url": "https://medium.com/@ayoubsmohamed07/python-linear-regression-5f91b7bf1e56"
+    }
+  ],
+  "text": {
+    "navNow": "Now building",
+    "navProjects": "Projects",
+    "navStack": "Stack",
+    "navHistory": "Experience",
+    "navCerts": "Certifications",
+    "navWriting": "Writing",
+    "projectsTitle": "Projects",
+    "projectsHint": "Hover a card for details",
+    "stackTitle": "Stack",
+    "historyTitle": "Experience and education",
+    "certsTitle": "Certifications",
+    "writingTitle": "Writing",
+    "writingMore": "More posts coming soon.",
+    "buildingTag": "Currently building",
+    "buildingButton": "Follow the repo",
+    "liveTag": "Live",
+    "footerLeft": "Ayoub Mohamed, 2026",
+    "footerRight": "powplowdevs.github.io",
+    "searchButton": "Search the site"
+  },
+  "seo": {
+    "title": "Ayoub Mohamed | Portfolio",
+    "description": "Ayoub Mohamed, self-taught programmer and IT student at George Mason. Software solutions, cybersecurity, and networking projects in C++, Go, and Python."
+  },
+  "analytics": {
+    "googleId": "G-0JEM6FPTNP"
+  }
+}
