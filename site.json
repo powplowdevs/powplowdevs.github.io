@@ -389,7 +389,7 @@
       "title": "Post-Quantum Cryptography: Risks, Responses, and Security Challenges",
       "summary": "An architectural deep dive into lattice-based cryptography, QKD networks, and the reality of the transition..",
       "url": "https://medium.com/@ayoubsmohamed07/post-quantum-cryptography-risks-responses-and-security-challenges-da4f66a9711b"
-    }
+    },
     {
       "title": "Python linear regression",
       "summary": "A walkthrough of a from-scratch regression script: best-fit line, squared error, and an accuracy score.",
