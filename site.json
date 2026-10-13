@@ -72,17 +72,6 @@
       "stars": 1
     },
     {
-      "name": "WINSPAR",
-      "kind": "Windows TCP optimizer",
-      "description": "Command-line tool that speed-tests different TCP settings and keeps the fastest, then uses Windows QoS policies to prioritize or cap bandwidth per app. Built on the registry and WinAPI as my 2023-24 capstone.",
-      "stack": [
-        "cpp",
-        "windows"
-      ],
-      "repo": "powplowdevs/WINSPAR-Windows-TCP-Optimizer",
-      "stars": 11
-    },
-    {
       "name": "Zero Trust mTLS Server",
       "coverText": "ZERO TRUST",
       "kind": "Certificate-based auth server",
@@ -91,6 +80,18 @@
         "go"
       ],
       "repo": "powplowdevs/zero-trust-mtls-server"
+    },
+    {
+      "name": "AutoSFX Wizard",
+      "kind": "Self-extracting installer builder",
+      "description": "Packs files and folders into one self-extracting .exe, with optional zlib compression plus run order, run count, and hidden or shown launch per file. Python packer, C++ stub.",
+      "stack": [
+        "cpp",
+        "python",
+        "windows"
+      ],
+      "repo": "powplowdevs/autoSFX",
+      "stars": 1
     },
     {
       "name": "SpyView",
@@ -130,16 +131,15 @@
       ]
     },
     {
-      "name": "AutoSFX Wizard",
-      "kind": "Self-extracting installer builder",
-      "description": "Packs files and folders into one self-extracting .exe, with optional zlib compression plus run order, run count, and hidden or shown launch per file. Python packer, C++ stub.",
+      "name": "WINSPAR",
+      "kind": "Windows TCP optimizer",
+      "description": "Command-line tool that speed-tests different TCP settings and keeps the fastest, then uses Windows QoS policies to prioritize or cap bandwidth per app. Built on the registry and WinAPI as my 2023-24 capstone.",
       "stack": [
         "cpp",
-        "python",
         "windows"
       ],
-      "repo": "powplowdevs/autoSFX",
-      "stars": 1
+      "repo": "powplowdevs/WINSPAR-Windows-TCP-Optimizer",
+      "stars": 11
     },
     {
       "name": "LearnWebGL",
