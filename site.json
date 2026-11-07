@@ -41,6 +41,8 @@
     }
   ],
   "currentlyBuilding": {
+    "tag": "Latest project",
+    "button": "View the repo",
     "title": "ASIO Client-Server Framework v2",
     "kind": "Async C++ networking framework",
     "description": "A from-scratch rewrite of my header-only Boost.Asio framework. Connects, reads, writes, and logging all return instantly and finish in the background, so the app on top never freezes. This time I'm rebuilding it piece by piece and load testing it at the end.",
@@ -54,7 +56,7 @@
   "projects": [
     {
       "name": "ASIO Framework v2",
-      "building": true,
+      "badge": "Latest project",
       "coverText": "ASIO V2",
       "kind": "Async C++ networking framework",
       "description": "A from-scratch rewrite of my header-only Boost.Asio framework, rebuilt piece by piece. The original v1 lives in the same repo, with its docs linked here.",
@@ -397,7 +399,7 @@
     }
   ],
   "text": {
-    "navNow": "Now building",
+    "navNow": "Latest project",
     "navProjects": "Projects",
     "navStack": "Stack",
     "navHistory": "Experience",
