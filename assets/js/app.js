@@ -18,13 +18,13 @@ const NAV=[['now',TEXT.navNow,null,'doc'],['projects',TEXT.navProjects,ALLP.leng
 
 const links=()=>`<ul class="lk">${S.links.map(l=>`<li><a href="${l.u}" ${ext}>${ic(l.k)}<strong>${l.l}</strong><small>${l.h}</small></a>${l.copy?`<button class="cp" data-copy="${l.copy}" aria-label="Copy email address">Copy</button>`:''}</li>`).join('')}</ul>`;
 const tl=(x='')=>`<ul class="tl ${x}">${S.history.map(h=>`<li><span class="n">${ic(h.t==='edu'?'school':'work')}</span><b>${h.a}</b><span>${h.b}</span><em>${h.d}</em></li>`).join('')}</ul>`;
-const nowBox=()=>{const n=S.now;return `<article class="now sink" id="now" aria-label="${TEXT.buildingTag}">
+const nowBox=()=>{const n=S.now,tg=n.tag||TEXT.buildingTag;return `<article class="now sink" id="now" aria-label="${tg}">
 <div class="vis">${n.image?`<img src="${n.image}" alt="${n.title} screenshot">`:`<div class="grid"></div><div class="glow"></div><div class="ghost" aria-hidden="true">${n.title.split(' ')[0]}</div>`}
-<span class="lastc x-commit" id="lastc"><span class="dot g"></span><span>Last commit</span> <b>2 hours ago</b></span><div class="ov"><div class="tag"><span class="dot"></span>${TEXT.buildingTag}</div><h3>${n.title}</h3><div class="kind">${n.kind}</div></div></div>
-<div class="body"><p>${n.blurb}</p><div class="side"><div class="chipsi">${n.stack.map(k=>`<span style="--b:${B(k)}">${ic(k)}${LABEL[k]||k}</span>`).join('')}</div><a class="btn solid" href="${n.repo}" ${ext}>${ic('github')}${TEXT.buildingButton}</a></div></div></article>`};
+<span class="lastc x-commit" id="lastc"><span class="dot g"></span><span>Last commit</span> <b>2 hours ago</b></span><div class="ov"><div class="tag"><span class="dot"></span>${tg}</div><h3>${n.title}</h3><div class="kind">${n.kind}</div></div></div>
+<div class="body"><p>${n.blurb}</p><div class="side"><div class="chipsi">${n.stack.map(k=>`<span style="--b:${B(k)}">${ic(k)}${LABEL[k]||k}</span>`).join('')}</div><a class="btn solid" href="${n.repo}" ${ext}>${ic('github')}${n.button||TEXT.buildingButton}</a></div></div></article>`};
 const projects=()=>`<section class="sec" id="projects"><div class="sh rv"><h2>${TEXT.projectsTitle}</h2><span class="cnt">${ALLP.length}</span><p>${TEXT.projectsHint}</p></div><div class="pgrid">
 ${ALLP.map((p,i)=>`<article class="pc rv" style="--d:${i}"><a class="pl" href="${gh(p.repo)}" ${ext} aria-label="${p.n} on GitHub: ${p.k}"></a>
-<div class="cv pat${i%4}"><b aria-hidden="true">${p.cover||p.n.split(' ')[0]}</b>${p.live?`<span class="live"><span class="dot g"></span>${TEXT.liveTag}</span>`:''}${p.building?`<span class="live bld"><span class="dot"></span>${TEXT.buildingTag}</span>`:''}</div>
+<div class="cv pat${i%4}"><b aria-hidden="true">${p.cover||p.n.split(' ')[0]}</b>${p.live?`<span class="live"><span class="dot g"></span>${TEXT.liveTag}</span>`:''}${p.badge?`<span class="live bld"><span class="dot"></span>${p.badge}</span>`:""}</div>
 <div class="bd"><h4>${p.n}<small data-stars="${p.repo}">${STARS[p.repo]?STAR+' '+STARS[p.repo]:''}</small></h4><div class="k">${p.k}</div><div class="d">${p.d}</div>
 <div class="ft"><div class="si">${p.s.map(k=>ic(k)).join('')}</div>${(p.links||[]).length?`<div class="xl">${p.links.map(l=>`<a href="${l[1]}" ${ext}>${l[0]}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>`).join('')}</div>`:''}</div></div></article>`).join('')}</div></section>`;
 const stack=()=>`<section class="sec" id="stack"><div class="sh rv"><h2>${TEXT.stackTitle}</h2><span class="cnt">${Object.values(S.stack).flat().length}</span></div>
@@ -207,7 +207,9 @@ ssync();
 if(sc.on){window.__holdIntro=true;Sound.setOn(true);let decided=false;
  const go=()=>{if(decided)return;decided=true;window.__holdIntro=false;intro()};
  const gate=()=>{if(decided)return;if(Sound.state==='running'){go();return}
+  Sound.setOn(false);
   const ov=document.createElement('div');ov.className='enter';ov.innerHTML='<button class="enter-go"><span class="enter-ring"></span>Click to enter</button><button class="enter-mute">Continue without sound</button>';document.body.appendChild(ov);
+  ov.addEventListener("pointerdown",e=>e.stopPropagation());
   requestAnimationFrame(()=>ov.classList.add('on'));const close=()=>{ov.classList.remove('on');setTimeout(()=>ov.remove(),500)};
   ov.querySelector('.enter-go').addEventListener('click',()=>{Sound.setOn(true);close();go()});
   ov.querySelector('.enter-mute').addEventListener('click',()=>{sc.on=false;ssync();Sound.setOn(false);close();go()});
