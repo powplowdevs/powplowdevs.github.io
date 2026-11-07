@@ -455,6 +455,6 @@ body.x-depth .depth{display:block}body.x-xray .xcap{display:block}body.x-commit 
 .enter-go:hover,.enter-go:focus-visible{border-color:#8ff3e0;background:rgba(143,243,224,.06)}
 .enter-ring{position:absolute;inset:-1px;border-radius:999px;border:1px solid rgba(143,243,224,.5);animation:enterRing 2.2s ease-out infinite;pointer-events:none}
 @keyframes enterRing{from{transform:scale(1);opacity:.8}to{transform:scale(1.25,1.6);opacity:0}}
-.enter-mute{background:none;border:0;color:var(--dm);font:13px var(--body);cursor:pointer;min-height:36px;padding:0 10px}
-.enter-mute:hover{color:var(--mu)}
+.enter-mute{background:rgba(255,255,255,.04);border:1px solid var(--ln2);border-radius:999px;color:var(--tx);font:500 14px var(--body);cursor:pointer;min-height:46px;padding:0 24px;transition:border-color .3s,background .3s}
+.enter-mute:hover,.enter-mute:focus-visible{border-color:var(--mu);background:rgba(255,255,255,.09)}
 .enter:not(.on){pointer-events:none}
