@@ -11,14 +11,14 @@ function adaptSite(j){
  window.STARS={};
  const B=j.currentlyBuilding||{};
  const projects=(j.projects||[]).map(p=>{const key=repoKey(p.repo);if(p.stars!=null&&STARS[key]==null)STARS[key]=p.stars;
-  return{building:!!p.building,n:p.name,cover:p.coverText,k:p.kind,d:p.description,s:p.stack||[],repo:key,live:p.live||null,links:(p.links||[]).map(l=>[l.label,l.url])}});
+  return{badge:p.badge||(p.building?T.buildingTag||"Currently building":""),n:p.name,cover:p.coverText,k:p.kind,d:p.description,s:p.stack||[],repo:key,live:p.live||null,links:(p.links||[]).map(l=>[l.label,l.url])}});
  window.GLOW_LIST=(j.stack&&j.stack.strongGlow)||[];
  window.TEXT=Object.assign({navNow:'Now building',navProjects:'Projects',navStack:'Stack',navHistory:'Experience',navCerts:'Certifications',navWriting:'Writing',projectsTitle:'Projects',projectsHint:'Hover a card for details',stackTitle:'Stack',historyTitle:'Experience and education',certsTitle:'Certifications',writingTitle:'Writing',writingMore:'',buildingTag:'Currently building',buildingButton:'Follow the repo',liveTag:'Live',footerLeft:'',footerRight:'',searchButton:'Search the site'},T);
  const stack={};((j.stack&&j.stack.groups)||[]).forEach(g=>{stack[g.name]=g.skills||[]});
  window.SITE={
   name:[P.firstName||'',P.lastName||''],handle:P.handle||'',intro:P.tagline||'',sub:P.subline||'',status:P.status||'',
   links:(j.links||[]).map(l=>({k:l.icon,l:l.label,h:l.detail||'',u:l.url,copy:l.copy})),
-  now:{title:B.title,kind:B.kind||'',blurb:B.description||'',stack:B.stack||[],repo:repoUrl(B.repo||''),image:B.image||null},
+  now:{title:B.title,kind:B.kind||'',blurb:B.description||'',stack:B.stack||[],repo:repoUrl(B.repo||''),image:B.image||null,tag:B.tag||"",button:B.button||""},
   projects,stack,notes,
   courses:(j.courses||[]).map(c=>({c:c.code,n:c.name,at:c.school,s:c.skills||[],now:!!c.inProgress})),
   history:(j.history||[]).map(h=>({t:h.type==='work'?'work':'edu',a:h.title,b:h.place,d:h.dates})),
